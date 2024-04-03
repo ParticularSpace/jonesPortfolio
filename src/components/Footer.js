@@ -22,12 +22,12 @@ function Footer() {
           LinkedIn
         </a>
         <a
-          href="https://twitter.com"
+          href="https://x.com/sam_jjones12"
           className="hover:text-gray-400"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Twitter
+          X
         </a>
       </div>
     </footer>
