@@ -1,11 +1,12 @@
 import Footer from "../components/Footer";
-
+import ParticleSwirl from "../components/ParticleSwirl";
 
 function Home(){
 
 
     return(
         <div className="flex flex-col min-h-screen">
+            <ParticleSwirl />
         <div className="flex-grow flex flex-col justify-center items-center">
             <div className="text-center">
                 <h1 className="text-4xl font-bold">Sam Jones</h1>
