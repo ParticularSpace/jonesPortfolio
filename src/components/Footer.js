@@ -2,7 +2,7 @@ function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-800 text-white text-center p-4">
+    <footer className="bg-gray-600 text-white text-center p-4">
       <p>© {year} Sam Jones - All rights reserved.</p>
       <div className="flex justify-center space-x-4 mt-2">
         <a
