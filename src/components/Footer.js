@@ -1,3 +1,5 @@
+import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+
 function Footer() {
   const year = new Date().getFullYear();
 
@@ -7,27 +9,27 @@ function Footer() {
       <div className="flex justify-center space-x-4 mt-2">
         <a
           href="https://github.com/ParticularSpace"
-          className="hover:text-gray-400"
+          className="hover:text-gray-400 flex items-center"
           target="_blank"
           rel="noopener noreferrer"
         >
-          GitHub
+          <FaGithub className="mr-1" /> GitHub
         </a>
         <a
           href="https://linkedin.com"
-          className="hover:text-gray-400"
+          className="hover:text-gray-400 flex items-center"
           target="_blank"
           rel="noopener noreferrer"
         >
-          LinkedIn
+          <FaLinkedin className="mr-1" /> LinkedIn
         </a>
         <a
           href="https://x.com/sam_jjones12"
-          className="hover:text-gray-400"
+          className="hover:text-gray-400 flex items-center"
           target="_blank"
           rel="noopener noreferrer"
         >
-          X
+          <FaTwitter className="mr-1" /> X
         </a>
       </div>
     </footer>
