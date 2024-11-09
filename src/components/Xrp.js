@@ -48,7 +48,7 @@ function Xrp() {
             width: chartContainerRef.current.clientWidth,
             height: 300,
             layout: {
-              backgroundColor: '#1F2937', // Dark background color for the chart
+              backgroundColor: 'black', // Dark background color for the chart
               textColor: '#C084FC',       // Neon purple text color
             },
             grid: {

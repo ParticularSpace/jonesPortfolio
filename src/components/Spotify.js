@@ -28,7 +28,7 @@ const Spotify = () => {
     }, []);
 
     return (
-        <div className="bg-gray-800 p-6 rounded-lg shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(0,255,255,0.6)] border border-cyan-400">
+        <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
             <h2 className="text-2xl font-semibold text-cyan-400 mb-6 flex items-center font-mono">
                 <FaSpotify className="mr-2" /> Top Tracks
             </h2>

@@ -1,8 +1,8 @@
 function AboutMe() {
   return (
-    <div className="max-w-4xl mx-5 my-8 p-6 bg-gray-800 text-gray-100 shadow-lg rounded-lg flex flex-col md:flex-row items-center transition-transform duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(0,255,255,0.6)]">
+    <div className="max-w-4xl mx-5 my-8 p-6 bg-gray-800 text-gray-100 shadow-lg rounded-lg flex flex-col md:flex-row items-center">
       {/* Profile Picture with Neon Border */}
-      <div className="w-32 h-32 md:w-48 md:h-48 rounded-full overflow-hidden mb-4 md:mb-0 md:mr-6 border-4 border-cyan-400 hover:shadow-[0_0_15px_rgba(0,255,255,0.8)] transition-shadow duration-300">
+      <div className="w-32 h-32 md:w-48 md:h-48 rounded-full overflow-hidden mb-4 md:mb-0 md:mr-6 border-4 border-cyan-400">
         <img
           src="https://via.placeholder.com/150"
           alt="Profile"
