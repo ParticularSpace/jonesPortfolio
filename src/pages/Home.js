@@ -54,7 +54,7 @@ function Home() {
         <div className="col-span-4 sm:col-span-2 row-span-1 bg-gray-800 p-4 rounded-lg hover:shadow-[0_0_20px_rgba(0,255,255,0.6)] transition-all duration-300">
           <Xrp />
         </div>
-        <div className="col-span-4 sm:col-span-2 row-span-1 bg-gray-800 p-4 rounded-lg hover:shadow-[0_0_20px_rgba(0,255,255,0.6)] transition-all duration-300">
+        <div className="col-span-4 sm:col-span-4 row-span-1 bg-gray-800 p-4 rounded-lg hover:shadow-[0_0_20px_rgba(0,255,255,0.6)] transition-all duration-300">
           <Resume />
         </div>
       </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Project from "./Project";
 
 function ProjectGallery() {
@@ -41,36 +41,69 @@ function ProjectGallery() {
     },
   ];
 
-  // Select the first project as the featured project
-  const [featuredProject, ...otherProjects] = projectData;
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Helper functions for carousel navigation
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? projectData.length - 1 : prevIndex - 1
+    );
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === projectData.length - 1 ? 0 : prevIndex + 1
+    );
+  };
 
   return (
-    <div className="max-w-6xl mx-auto p-6">
-      <h2 className="text-4xl font-mono font-semibold text-cyan-400 mb-8 text-center">My Projects</h2>
-      
-      {/* Featured Project Section */}
-      <div className="mb-12">
+    <div className="max-w-4xl mx-auto p-6">
+      <h2 className="text-4xl font-mono font-semibold text-cyan-400 mb-8 text-center">
+        My Projects
+      </h2>
+
+      {/* Carousel Container */}
+      <div className="relative">
+        {/* Project Display */}
         <Project
-          title={featuredProject.title}
-          description={featuredProject.description}
-          imageUrl={featuredProject.imageUrl}
-          projectLink={featuredProject.projectLink}
-          className="bg-gray-800 text-white p-8 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300"
+          title={projectData[currentIndex].title}
+          description={projectData[currentIndex].description}
+          imageUrl={projectData[currentIndex].imageUrl}
+          projectLink={projectData[currentIndex].projectLink}
+          className="bg-gray-800 text-white p-8 rounded-lg shadow-lg transition-transform duration-500 transform hover:scale-105"
         />
       </div>
 
-      {/* Grid for Other Projects */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {otherProjects.map((project, index) => (
-          <Project
-            key={index}
-            title={project.title}
-            description={project.description}
-            imageUrl={project.imageUrl}
-            projectLink={project.projectLink}
-            className="bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
-          />
-        ))}
+      {/* Dots Indicator and Navigation Arrows */}
+      <div className="flex justify-center items-center space-x-4 mt-6">
+        {/* Previous Arrow */}
+        <button
+          onClick={handlePrev}
+          className="bg-gray-700 hover:bg-cyan-600 text-white px-3 py-2 rounded-full focus:outline-none"
+        >
+          &lt;
+        </button>
+
+        {/* Dots Indicator */}
+        <div className="flex space-x-2">
+          {projectData.map((_, index) => (
+            <span
+              key={index}
+              onClick={() => setCurrentIndex(index)}
+              className={`cursor-pointer w-3 h-3 rounded-full ${
+                currentIndex === index ? "bg-cyan-400" : "bg-gray-500"
+              }`}
+            ></span>
+          ))}
+        </div>
+
+        {/* Next Arrow */}
+        <button
+          onClick={handleNext}
+          className="bg-gray-700 hover:bg-cyan-600 text-white px-3 py-2 rounded-full focus:outline-none"
+        >
+          &gt;
+        </button>
       </div>
     </div>
   );
