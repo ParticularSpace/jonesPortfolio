@@ -3,19 +3,20 @@ import ParticleSwirl from "../components/ParticleSwirl";
 import AboutMe from "../components/AboutMe";
 import Weather from "../components/Weather";
 import ProjectGallery from "../components/ProjectGallery";
-import Spotify from "../components/Spotify";
+import Contact from "../components/Contact";
 import Xrp from "../components/Xrp";
+import Resume from "../components/Resume";
 
 function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-gray-900 text-gray-100 font-mono">
       <ParticleSwirl />
-      
+
       {/* Header Section */}
       <div className="flex-grow flex flex-col items-center mt-10">
         <div className="text-center">
-          <h1 className="text-3xl text-cyan-400">Sam Jones</h1>
-          <h2 className="text-xl text-pink-500">Software Engineer</h2>
+          <h1 className="text-5xl text-cyan-400">Sam Jones</h1>
+          <h2 className="text-3xl text-pink-500">Software Engineer</h2>
         </div>
 
         {/* Navigation Buttons */}
@@ -41,8 +42,8 @@ function Home() {
         <div className="col-span-4 sm:col-span-2 row-span-2 bg-gray-800 p-4 rounded-lg hover:shadow-[0_0_20px_rgba(0,255,255,0.6)] transition-all duration-300">
           <AboutMe />
         </div>
-        <div className="col-span-4 sm:col-span-1 row-span-1 bg-gray-800 p-4 rounded-lg hover:shadow-[0_0_20px_rgba(0,255,255,0.6)] transition-all duration-300">
-          <Spotify />
+        <div className="col-span-4 sm:col-span-1 row-span-2 bg-gray-800 p-4 rounded-lg hover:shadow-[0_0_20px_rgba(0,255,255,0.6)] transition-all duration-300">
+          <Contact />
         </div>
         <div className="col-span-4 sm:col-span-1 row-span-2 bg-gray-800 p-4 rounded-lg hover:shadow-[0_0_20px_rgba(0,255,255,0.6)] transition-all duration-300">
           <Weather />
@@ -52,6 +53,9 @@ function Home() {
         </div>
         <div className="col-span-4 sm:col-span-2 row-span-1 bg-gray-800 p-4 rounded-lg hover:shadow-[0_0_20px_rgba(0,255,255,0.6)] transition-all duration-300">
           <Xrp />
+        </div>
+        <div className="col-span-4 sm:col-span-2 row-span-1 bg-gray-800 p-4 rounded-lg hover:shadow-[0_0_20px_rgba(0,255,255,0.6)] transition-all duration-300">
+          <Resume />
         </div>
       </div>
 

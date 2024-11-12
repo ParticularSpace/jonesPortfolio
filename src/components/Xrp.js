@@ -7,13 +7,13 @@ function Xrp() {
   const [price, setPrice] = useState(null);
   const [error, setError] = useState(null);
   const chartContainerRef = useRef();
-  const chartRef = useRef(); // Reference for tracking the chart instance
+  const chartRef = useRef();
 
   useEffect(() => {
     const fetchXrpPrice = async () => {
       try {
         const response = await axios.get(
-          'https://min-api.cryptocompare.com/data/price?fsym=XRP&tsyms=USD&api_key=' + process.env.REACT_APP_CRYPTO_API_KEY
+          `https://min-api.cryptocompare.com/data/price?fsym=XRP&tsyms=USD&api_key=${process.env.REACT_APP_CRYPTO_API_KEY}`
         );
         setPrice(response.data.USD);
       } catch (err) {
@@ -23,8 +23,8 @@ function Xrp() {
     };
 
     fetchXrpPrice();
-    const interval = setInterval(fetchXrpPrice, 60000); // Refresh every 60 seconds
-    return () => clearInterval(interval); // Clear interval on component unmount
+    const interval = setInterval(fetchXrpPrice, 60000);
+    return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
@@ -33,7 +33,7 @@ function Xrp() {
         const response = await axios.get(
           `https://min-api.cryptocompare.com/data/v2/histohour?fsym=XRP&tsym=USD&limit=168&api_key=${process.env.REACT_APP_CRYPTO_API_KEY}`
         );
-        
+
         const historicalData = response.data.Data.Data.map((point) => ({
           time: point.time,
           open: point.open,
@@ -42,14 +42,13 @@ function Xrp() {
           close: point.close,
         }));
 
-        // Only create the chart if it does not already exist
         if (!chartRef.current && chartContainerRef.current) {
           chartRef.current = createChart(chartContainerRef.current, {
             width: chartContainerRef.current.clientWidth,
             height: 300,
             layout: {
-              backgroundColor: 'black', // Dark background color for the chart
-              textColor: '#C084FC',       // Neon purple text color
+              backgroundColor: 'black',
+              textColor: '#C084FC',
             },
             grid: {
               vertLines: { color: '#444' },
@@ -65,11 +64,10 @@ function Xrp() {
               borderColor: '#C084FC',
             },
           });
-          
-          // Add the candlestick series to the chart
+
           const candleSeries = chartRef.current.addCandlestickSeries({
-            upColor: '#00FF00',         // Green for bullish candles
-            downColor: '#FF497A',       // Pink for bearish candles
+            upColor: '#00FF00',
+            downColor: '#FF497A',
             borderUpColor: '#00FF00',
             borderDownColor: '#FF497A',
             wickUpColor: '#00FF00',
@@ -84,7 +82,6 @@ function Xrp() {
 
     fetchHistoricalData();
 
-    // Handle resizing the chart
     const handleResize = () => {
       if (chartContainerRef.current && chartRef.current) {
         chartRef.current.applyOptions({ width: chartContainerRef.current.clientWidth });
@@ -113,8 +110,8 @@ function Xrp() {
         )}
       </motion.div>
 
-      {/* Chart Container */}
-      <div ref={chartContainerRef} className="mt-6 h-64 bg-gray-800 rounded-lg"></div>
+      {/* Chart Container with Dynamic Height */}
+      <div ref={chartContainerRef} className="mt-6 bg-gray-800 rounded-lg overflow-hidden"></div>
 
       <div className="flex justify-between items-center mt-6">
         <span className="text-pink-500 text-sm">Updated every 60 seconds</span>
