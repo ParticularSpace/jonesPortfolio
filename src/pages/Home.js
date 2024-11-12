@@ -9,7 +9,7 @@ import Resume from "../components/Resume";
 
 function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-gray-900 text-gray-100 font-mono">
+    <div className="relative min-h-screen text-gray-100 font-mono">
       <ParticleSwirl />
 
       {/* Header Section */}

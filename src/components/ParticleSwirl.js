@@ -10,45 +10,50 @@ const ParticleSwirl = () => {
         canvas.height = window.innerHeight;
 
         let particles = [];
-        const numberOfParticles = 50;
+        const numberOfParticles = 150;
 
-        // Initialize particles
+        // Initialize particles to resemble floating raindrops
         const initParticles = () => {
             for (let i = 0; i < numberOfParticles; i++) {
                 particles.push({
-                    x: Math.random() * canvas.width, // Initial x position
-                    y: Math.random() * canvas.height, // Initial y position
-                    size: Math.random() * 5 + 1, // Size
-                    speed: Math.random() * 2 - 1, // Speed
-                    angle: Math.random() * 360, // Movement angle
+                    x: Math.random() * canvas.width,         // Random x position
+                    y: Math.random() * canvas.height,        // Random y position
+                    size: Math.random() * 2 + 1,             // Raindrop size
+                    speedY: Math.random() * 0.5 + 0.2,       // Slow downward speed
+                    sway: Math.random() * 1 - 0.5,           // Side-to-side sway
+                    color: `hsla(${Math.random() * 60 + 240}, 100%, 85%, 0.8)`, // Light neon-like glow
                 });
             }
         };
 
         const updateParticles = () => {
-            particles.forEach(particle => {
-                particle.x += Math.cos(particle.angle) * particle.speed;
-                particle.y += Math.sin(particle.angle) * particle.speed;
+            particles.forEach((particle) => {
+                particle.y += particle.speedY; // Move downward
+                particle.x += Math.sin(particle.y * 0.05) * particle.sway; // Sway gently side to side
 
-                if (particle.x < 0 || particle.x > canvas.width || particle.y < 0 || particle.y > canvas.height) {
+                // Reset particle position to top when it moves out of bounds (for continuous rain)
+                if (particle.y > canvas.height) {
+                    particle.y = 0;
                     particle.x = Math.random() * canvas.width;
-                    particle.y = Math.random() * canvas.height;
                 }
             });
         };
 
-        // Draw particles
+        // Draw particles with neon glow effect
         const drawParticles = () => {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach(particle => {
+            ctx.globalCompositeOperation = 'lighter';
+            particles.forEach((particle) => {
                 ctx.beginPath();
                 ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-                ctx.fillStyle = '#ffffff';
+                ctx.fillStyle = particle.color;
+                ctx.shadowBlur = 8; // Light glow for a soft neon effect
+                ctx.shadowColor = particle.color;
                 ctx.fill();
             });
         };
 
-        // loop
+        // Animation loop
         const animate = () => {
             updateParticles();
             drawParticles();
@@ -57,9 +62,35 @@ const ParticleSwirl = () => {
 
         initParticles();
         animate();
+
+        // Adjust canvas size on window resize
+        const handleResize = () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            particles = []; // Clear and reinitialize particles on resize
+            initParticles();
+        };
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
     }, []);
 
-    return <canvas ref={canvasRef} style={{ position: 'absolute', top: 0, left: 0, zIndex: -1 }} />;
+    return (
+        <canvas
+            ref={canvasRef}
+            style={{
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                zIndex: -1,
+                backgroundColor: '#021223', // Dark, deep blue for nighttime effect
+            }}
+        />
+    );
 };
 
 export default ParticleSwirl;
