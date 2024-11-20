@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "homepage": "https://particularspace.github.io/jonesPortfolio/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

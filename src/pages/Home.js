@@ -20,7 +20,7 @@ function Home() {
         </div>
 
         {/* Navigation Buttons */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-6">
+        {/* <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-6">
           <button className="bg-gray-800 hover:bg-violet-800 hover:shadow-[0_0_10px_rgba(245,66,203,0.6)] text-cyan-400 font-semibold py-2 px-3 rounded transition duration-300">
             Home
           </button>
@@ -33,7 +33,7 @@ function Home() {
           <button className="bg-gray-800 hover:bg-violet-800 hover:shadow-[0_0_10px_rgba(245,66,203,0.6)] text-cyan-400 font-semibold py-2 px-3 rounded transition duration-300">
             Contact
           </button>
-        </div>
+        </div> */}
       </div>
 
       {/* Main Content Grid */}

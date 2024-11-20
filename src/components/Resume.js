@@ -48,6 +48,19 @@ const Resume = () => {
         <div className="text-left space-y-4">
           <div>
             <h4 className="text-xl font-semibold text-gray-300">
+              Seattle Central Community College
+            </h4>
+            <p className="text-sm text-gray-400">
+              Seattle, WA | Associates of Science | GPA: 4.0 | 2023 - Present
+            </p>
+            <p className="text-gray-300">
+              Studying computer science with a focus on software development,
+              algorithms, and web technologies. Actively engaged in projects to
+              apply classroom knowledge to real-world applications.
+            </p>
+          </div>
+          <div>
+            <h4 className="text-xl font-semibold text-gray-300">
               Full Stack Web Development Bootcamp - UC Berkeley Extension
             </h4>
             <p className="text-sm text-gray-400">Remote | Completed 2022</p>
@@ -60,19 +73,6 @@ const Resume = () => {
             </p>
           </div>
 
-          <div>
-            <h4 className="text-xl font-semibold text-gray-300">
-              Seattle Central Community College
-            </h4>
-            <p className="text-sm text-gray-400">
-              Seattle, WA | Associates of Science | GPA: 4.0 | 2023 - Present
-            </p>
-            <p className="text-gray-300">
-              Studying computer science with a focus on software development,
-              algorithms, and web technologies. Actively engaged in projects to
-              apply classroom knowledge to real-world applications.
-            </p>
-          </div>
         </div>
       </div>
 
@@ -91,7 +91,7 @@ const Resume = () => {
       </div>
 
       {/* Download Resume Button */}
-      <div className="mt-8">
+      {/* <div className="mt-8">
         <a
           href="/path/to/your-resume.pdf"
           download
@@ -99,7 +99,7 @@ const Resume = () => {
         >
           Download Resume
         </a>
-      </div>
+      </div> */}
     </div>
   );
 };
