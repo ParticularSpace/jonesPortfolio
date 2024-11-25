@@ -35,16 +35,6 @@ const Contact = () => {
                     <FaLinkedin className="text-xl" />
                     <span>LinkedIn</span>
                 </a>
-
-                <a
-                    href="https://reddit.com/user/your-reddit-username"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center space-x-3 text-gray-300 hover:text-cyan-400 transition duration-300"
-                >
-                    <FaReddit className="text-xl" />
-                    <span>Reddit</span>
-                </a>
             </div>
         </div>
     );
